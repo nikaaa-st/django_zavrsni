@@ -1,0 +1,11 @@
+<ul class="recipe-list">
+    {% for recipe in object_list %}
+        <li class="recipe-card">
+            <a href="{% url 'recipe-detail' recipe.pk %}">
+                {{ recipe.title }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No results</li>
+    {% endfor %}
+</ul>

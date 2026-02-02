@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% block title %}Recipes{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h1>Recipes</h1>
+
+    <input 
+        type="text"
+        name="q"
+        placeholder="Search recipes..."
+        hx-get="{% url 'recipe-search' %}"
+        hx-target="#results"
+        hx-trigger="keyup changed delay:300ms"
+        style="margin-bottom:20px;"
+    />
+
+    <div id="results">
+        {% include 'main/partials/recipe_results.html' %}
+    </div>
+
+    {% if user.is_authenticated %}
+        <a class="btn" href="{% url 'recipe-create' %}">New recipe</a>
+    {% endif %}
+</div>
+
+{% endblock %}

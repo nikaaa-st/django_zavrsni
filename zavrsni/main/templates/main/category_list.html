@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Categories</h1>
+
+    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        {% for category in object_list %}
+            <a 
+                href="{% url 'recipes-by-category' category.pk %}" 
+                class="btn"
+            >
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

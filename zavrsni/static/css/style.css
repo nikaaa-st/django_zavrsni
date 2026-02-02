@@ -1,0 +1,170 @@
+/* RESET + BASE */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #fff6ed;
+    color: #2f2f2f;
+}
+
+/* NAVBAR */
+.navbar {
+    background: linear-gradient(135deg, #ff914d, #ff6f3c);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.navbar nav a,
+.navbar nav span {
+    color: white;
+    margin-left: 18px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar nav a:hover {
+    text-decoration: underline;
+}
+
+/* PAGE LAYOUT */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADINGS */
+h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* FORMS */
+form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #ff914d;
+}
+
+/* BUTTONS */
+button,
+.btn {
+    background: #ff914d;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: #ff7a2f;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.danger {
+    background: #e04b4b;
+}
+
+.danger:hover {
+    background: #c83d3d;
+}
+
+/* LINKS / TEXT */
+.muted {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.error {
+    color: #d9534f;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* RECIPE LIST */
+.recipe-list {
+    list-style: none;
+    padding: 0;
+}
+
+.recipe-card {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.recipe-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-card h3 {
+    margin: 0;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 0.9rem;
+}

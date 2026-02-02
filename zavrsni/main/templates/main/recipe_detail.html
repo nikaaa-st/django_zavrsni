@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.description }}</p>
+
+    <p><strong>Time:</strong> {{ object.preparation_time }} min</p>
+    <p><strong>Category:</strong> {{ object.category }}</p>
+
+    <h3>Ingredients</h3>
+    <ul>
+    {% for ingredient in object.ingredients_text.splitlines %}
+        <li>{{ ingredient }}</li>
+    {% endfor %}
+    </ul>
+
+    {% if object.image %}
+    <div style="width: 100%; max-width: 700px; margin: 0 auto;">
+        <img 
+            src="{{ object.image.url }}" 
+            alt="{{ object.title }}"
+            style="width: 100%; height: auto; display: block; border-radius: 14px;"
+        />
+    </div>
+    {% endif %}
+
+
+
+    {% if user == object.author %}
+    <div class="actions">
+        <a class="btn" href="{% url 'recipe-update' object.pk %}">Edit</a>
+        <a class="btn danger" href="{% url 'recipe-delete' object.pk %}">Delete</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

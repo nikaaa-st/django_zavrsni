@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Recipes in "{{ category.name }}"</h1>
+
+    {% if object_list %}
+        <ul class="recipe-list">
+            {% for recipe in object_list %}
+                <li class="recipe-card">
+                    <a href="{% url 'recipe-detail' recipe.pk %}">
+                        {{ recipe.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recipes in this category.</p>
+    {% endif %}
+
+    <a class="btn" href="{% url 'category-list' %}">Back to categories</a>
+</div>
+{% endblock %}

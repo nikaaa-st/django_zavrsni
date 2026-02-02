@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}RecipeShare{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<header class="navbar">
+    <h2 class="logo">RecipeShare</h2>
+    <nav>
+        <a href="{% url 'category-list' %}">Categories</a>
+
+        <a href="{% url 'recipe-list' %}">Recipes</a>
+
+        {% if user.is_authenticated %}
+            <span class="user">👋 {{ user.username }}</span>
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <p>© 2026 RecipeShare – platform for sharing recipes and tips</p>
+</footer>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</body>
+</html>
